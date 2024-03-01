@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angel Arteaga</title>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;1,100&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #B1C8F1; /* Color pastel de fondo */
+            font-family: Roboto Mono;
+        }
+
+        .container {
+            text-align: center;
+            color: #fff; /* Color de las letras */
+        }
+
+        h1 {
+            font-size: 2.5em; /* Letras grandes */
+        }
+
+        #date-time {
+            font-size: 1.2em; /* Tamaño de letra para fecha y hora */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Luis David Garcia Alay - 201612511</h1>
+        <p id="date-time"></p>
+    </div>
+    <script src="assets/js/index.jsa"></script>
+    <script>
+        setdatetime();
+
+        // Llamamos a la función cada segundo usando setInterval
+        setInterval(setdatetime, 1000);
+        function setdatetime(){
+            // Obtenemos la fecha y hora actual
+            const dateTime = new Date();
+            
+            // Formateamos la fecha y hora
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+            const formattedDateTime = dateTime.toLocaleDateString('es-ES', options);
+            
+            // Mostramos la fecha y hora en el párrafo correspondiente
+            document.getElementById('date-time').textContent = formattedDateTime;
+        }
+    </script>
+</body>
+</html>

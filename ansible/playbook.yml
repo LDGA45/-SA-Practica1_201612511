@@ -1,0 +1,31 @@
+---
+- name: Instalar Nginx localmente
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Instalar Nginx
+      package:
+        name: nginx
+        state: present
+
+    - name: Copiar el archivo index.html
+      copy:
+        src: /github/frontend/index.html
+        dest: /var/www/html/index.html
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Copiar el archivo favicon.ico
+      copy:
+        src: /github/frontend/favicon.ico
+        dest: /var/www/html/favicon.ico
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Reiniciar Nginx
+      service:
+        name: nginx
+        state: restarted
