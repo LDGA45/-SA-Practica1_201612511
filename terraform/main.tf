@@ -41,7 +41,7 @@ resource "google_compute_instance" "default" {
     #!/bin/bash
     sudo apt-get update
     sudo apt-get install -y git
-    sudo git clone https://github.com/AngelArteaga1/-SA-Practica1_201901816.git /github
+    sudo git clone https://github.com/LDGA45/-SA-Practica1_201612511.git /github
     sudo apt-get install -y ansible
     sudo ansible-playbook /github/ansible/playbook.yml
   EOF
@@ -51,6 +51,8 @@ resource "google_compute_instance" "default" {
   }
 
 }
+//https://github.com/LDGA45/-SA-Practica1_201612511.git
+//https://github.com/AngelArteaga1/-SA-Practica1_201901816.git
 
 resource "google_compute_firewall" "allow-http" {
   name    = "allow-http"
